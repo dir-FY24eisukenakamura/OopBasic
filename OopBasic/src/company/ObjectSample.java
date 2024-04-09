@@ -13,11 +13,20 @@ public class ObjectSample {
         System.out.println("");
         
         var devDepartment = new Department("開発部", "yy", 0);
-        var engineer =new Employee("田中", devDepartment , "一般社員", 88);
+        var engineer =new Engineer("田中", devDepartment , "一般社員", 88, "Java");
         
         engineer.report();
         engineer.joinMeeting();
+        engineer.developSoftware();//
         
+        Employee projectManager = new Engineer("佐藤", devDepartment, "PM", 99, "Java");
+        
+        projectManager.report();
+        projectManager.joinMeeting();
+        if(projectManager instanceof Engineer) {
+            ((Engineer) projectManager).developSoftware();
+            
+        }
     }
 
 }
