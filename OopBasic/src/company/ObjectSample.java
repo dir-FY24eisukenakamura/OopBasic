@@ -3,12 +3,12 @@ package company;
 public class ObjectSample {
 
     public static void main(String[] args) {
-        var department = new Department("営業部", "xx", 1000000);
-        var employee = new Employee("鈴木", department, "課長", 100);
-        
-        employee.report();
-        employee.report(2);
-        employee.joinMeeting();
+        var salesDepartment = new Department("営業部", "xx", 1000000);
+        Employee sales = new Sales("鈴木", salesDepartment, "課長", 100);
+ 
+        sales.report();
+        sales.report(2);
+        sales.joinMeeting();
         
         System.out.println("");
         
@@ -25,8 +25,17 @@ public class ObjectSample {
         projectManager.joinMeeting();
         if(projectManager instanceof Engineer) {
             ((Engineer) projectManager).developSoftware();
-            
-        }
+        }     
+        
+        
+        System.out.println("");
+        
+        var parttimeWorker = new Parttimeworker("太田", salesDepartment);
+        
+        ((Workable)sales).work();
+        ((Workable)engineer).work();
+        ((Workable)projectManager).work();
+        ((Workable)parttimeWorker).work();
     }
 
 }
